@@ -21,5 +21,4 @@ jobs:
           pip3 install email-validator
 
       - name: Tests my webpages
-        run: | 
-        python3 myWebsite/tests/test_basic.py
+        run: python3 myWebsite/tests/test_basic.py
