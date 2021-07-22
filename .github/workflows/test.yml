@@ -20,6 +20,8 @@ jobs:
           pip3 install flask-sqlalchemy
           pip3 install email-validator
 
-      - name: Tests my webpages
+      - name: Run web_page
         run: python3 myWebsite/web_page.py
+        
+      - name: Tests my webpages
         run: python3 myWebsite/tests/test_basic.py
