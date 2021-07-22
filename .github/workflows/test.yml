@@ -19,6 +19,8 @@ jobs:
           pip3 install flask-wtf
           pip3 install flask-sqlalchemy
           pip3 install email-validator
+          pip3 install flask_behind_proxy
+          pip3 install flask_sqlalchemy
 
       - name: Run web_page
         run: python3 myWebsite/web_page.py
