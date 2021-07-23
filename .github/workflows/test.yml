@@ -22,7 +22,7 @@ jobs:
           pip3 install flask_behind_proxy
           pip3 install flask_sqlalchemy
 
-      #- name: Run web_page
+      - name: declaration
         web_page = myWebsite/web_page.py
         
       - name: Tests my webpages
