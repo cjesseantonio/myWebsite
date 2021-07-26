@@ -17,7 +17,7 @@ class UsersTests(unittest.TestCase):
     ###############
 
     def register(self, username, email, password):
-        return self.app.post('/register',
+        return self.app.post('/contact',
                             data=dict(username=username,
                                       email=email,
                                       password=password, 

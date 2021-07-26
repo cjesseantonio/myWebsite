@@ -13,16 +13,20 @@ class BasicTests(unittest.TestCase):
     #### tests ####
     ###############
 
-    def test_main_page(self):
+    def test_home_page(self):
         response = self.app.get('/', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
     
-    def test_second_page(self):
-        response = self.app.get('/second_page', follow_redirects=True)
+    def test_about_page(self):
+        response = self.app.get('/about', follow_redirects=True)
+        self.assertEqual(response.status_code, 200)
+    
+    def test_resume_page(self):
+        response = self.app.get('/resume', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
         
-    def test_register_page(self):
-        response = self.app.get('/register', follow_redirects=True)
+    def test_contact_page(self):
+        response = self.app.get('/contact', follow_redirects=True)
         self.assertEqual(response.status_code, 200)
 
 if __name__ == "__main__":
