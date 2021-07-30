@@ -23,7 +23,7 @@ jobs:
           pip3 install flask_sqlalchemy
 
       - name: Tests my webpages
-        run: python3 myWebsite/test_basic.py
+        run: python3 myWebsite/tests/test_basic.py
         
       - name: Tests form
-        run: python3 myWebsite/test_users.py
+        run: python3 myWebsite/tests/test_users.py
