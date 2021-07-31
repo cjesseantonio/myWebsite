@@ -6,6 +6,11 @@ from audio_file import printWAV
 import time, random, threading
 from turbo_flask import Turbo
 
+from flask import Flask
+from flask_bcrypt import Bcrypt
+
+app = Flask(__name__)
+bcrypt = Bcrypt(app)
 
 # import secrets, then type secrets.token_hex(16) in a
 # python interpreter to get a secret key (hint: type python3 in the terminal)
@@ -51,6 +56,7 @@ def resume():
 def contact():
     form = RegistrationForm()
     if form.validate_on_submit(): # checks if entries are valid
+        #pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
