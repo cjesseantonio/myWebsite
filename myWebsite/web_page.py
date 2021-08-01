@@ -35,7 +35,7 @@ class User(db.Model):
   password = db.Column(db.String(60), nullable=False)
 
   def __repr__(self):
-    return f"User('{self.username}', '{self.email}')"
+    return f"User('{self.id}', '{self.username}', '{self.email}', '{self.password}')"
 
 @app.route("/") # this tells you the URL the method below is related to
 #@app.route("/home")
@@ -56,8 +56,8 @@ def resume():
 def contact():
     form = RegistrationForm()
     if form.validate_on_submit(): # checks if entries are valid
-        #pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = User(username=form.username.data, email=form.email.data, password=form.password.data)
+        pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(username=form.username.data, email=form.email.data, password=pw_hash)
         db.session.add(user)
         db.session.commit()
         flash(f'Account created for {form.username.data}!', 'success')
