@@ -59,9 +59,14 @@ def contact():
         pw_hash = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
         user = User(username=form.username.data, email=form.email.data, password=pw_hash)
         db.session.add(user)
-        db.session.commit()
-        flash(f'Account created for {form.username.data}!', 'success')
-        return redirect(url_for('home')) # if so - send to home page
+        try:
+          db.session.commit()
+        except Exception:
+          flash(f'Try a different credential.')
+        else:
+          flash(f'Account created for {form.username.data}!', 'success')
+        finally:
+          return redirect(url_for('home')) # if so - send to home page
     return render_template('contact.html', title='Contact', form=form)
 
 
