@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2> Web administrators</h2>
+
+   <table> 
+    <thead> 
+    <tr> 
+        <th>ID</th> 
+        <th>Username</th>
+        <th>Email</th>
+        <th>Password</th>
+    </tr> 
+    </thead> 
+    <tbody> 
+        {% for column in admins %}
+    <tr>
+        <td>{{ column.id }}</td>
+        <td>{{ column.username }}</td>
+        <td>{{ column.email }}</td>
+        <td>{{ column.password }}</td>
+    </tr>
+    {% endfor %} 
+    </tbody> 
+</table> 
+
+<h2> Visitors to contact </h2>
+
+<table> 
+    <thead> 
+    <tr> 
+        <th>First name</th> 
+        <th>Last name</th>
+        <th>Email address</th>
+        <th>Phone number</th>
+    </tr> 
+    </thead> 
+    <tbody> 
+        {% for column in visitors %}
+    <tr>
+        <td>{{ column.firstName }}</td>
+        <td>{{ column.lastName }}</td>
+        <td>{{ column.email }}</td>
+        <td>{{ column.phoneNumber }}</td>
+    </tr>
+    {% endfor %} 
+    </tbody> 
+</table> 
+
+<a href="/addWebAdmin" >Add administrator</a>
+
+{% endblock content %}

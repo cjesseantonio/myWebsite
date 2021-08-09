@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block content %}
+    <!--<h2>{{ subtitle }}</h2>
+    <p>{{ text }}</p>-->
+    <p>Jesse is a senior Software Engineering student at Auburn University. 
+       He is originaly from Guinea-Bissau (West Africa). Jesse came to the US in 2018 to study 
+      Computer Engineering and later decided to focus more on the software side of things because he enjoys coding.
+      His passion for coding is simply born on the fact that he loves solving problems. In his free time, Jesse likes to cook,
+      play soccer and listen to music. Jesse is also passionate about helping other people. He wants to use his Software Engineering
+      skills to improve people's lives.
+    </p>   
+
+<h2> Inspirational &amp Motivational Speech</h2>
+<h3>{{ songName }}</h3>
+    <audio src="{{url_for('static', filename=file) }}" type="audio/x-wav" controls autoplay="false">
+    <p>Your browser does not support the audio element </p>
+    <source src="{{url_for('static', filename=file) }}">
+</audio>
+<!--<p>{{ file }}</p>-->
+
+{% include "captionsPane.html" %}
+
+{% endblock content %}
